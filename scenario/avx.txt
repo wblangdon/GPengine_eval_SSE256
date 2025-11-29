@@ -1,0 +1,68 @@
+#Magpie scenario file for gem5 $Revision: 1.9 $
+
+#Modifications:
+#WBL 13 Oct 2025 Switch to eval
+#WBL 10 Oct 2025 Add diffs.cpp.xml, increase max_steps
+#    combine div_funcs.cpp with div.cpp
+#WBL  9 Oct 2025 Add div_funcs.cpp.xml IntrinsicsGuide.cpp.xml
+#WBL  1 Oct 2025 based on 2025 May 19 07:53 malloc.txt, avx.txt r1.3
+
+[magpie]
+#default_timeout = 1200
+#default_output = 1e6
+
+#from tsd.txt r1.3
+[srcml]
+#from minisat_runtime_xml1.txt
+rename =
+    stmt: break continue decl_stmt do expr_stmt for goto if return switch while
+#from minisat_runtime_xml2.txt
+#rename =
+    number: literal_number
+#xml combined
+focus = block stmt operator_comp operator_arith number
+#focus = block stmt
+#internodes = block
+internodes = 
+process_pseudo_blocks = False
+process_literals = True
+process_operators = True
+
+[software]
+path = examples/code/avx
+target_files =
+    eval.cpp.xml
+#   div.cpp.xml
+#   div_funcs.cpp.xml
+    diffs.cpp.xml
+    IntrinsicsGuide.cpp.xml
+#fitness = perf_instructions
+fitness = output
+
+compile_cmd = tcsh ./compile.bat
+test_cmd = 
+run_cmd  = tcsh ./fit.bat
+#run_timeout = 1200
+
+
+[search]
+#max_steps = 1
+#max_steps = 1000
+max_steps = 100000
+possible_edits =
+#    LineDeletion
+#    LineInsertion
+#    LineReplacement
+#    ParamSetting
+    SrcmlArithmeticOperatorSetting
+    SrcmlComparisonOperatorSetting
+    SrcmlNumericSetting
+    SrcmlRelativeNumericSetting
+    SrcmlStmtDeletion
+    SrcmlStmtInsertion
+    SrcmlStmtReplacement
+    XmlNodeDeletion<stmt>
+    XmlNodeInsertion<stmt,block>
+    XmlNodeReplacement<stmt>
+#from tsd.txt r1.3
+#   StmtMoving emailed aymeric as rejected 7 Oct 2025
