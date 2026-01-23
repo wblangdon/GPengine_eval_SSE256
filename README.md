@@ -10,15 +10,16 @@ to operator on 16 test cases simultaneously using Intel's 256 bit SSE instructio
 Speedup is measured by Linux' perf instruction count.
 Which Magpie's local search tries to minify.
 
-Asummes new GCC g++ compiler (here 11.5.0)
-Assumes new Python (here 3.11.5)
+Assumes new GCC g++ compiler (here 11.5.0).
+Assumes new Python (here 3.11.5).
 SSE instruction set (your hardware must support at least -march=skylake).
+If you have AVX 512 (-march=skylake-avx512) you might consider https://github.com/wblangdon/GPengine_eval_AVX512
 Assumes Magpie (30 Sep 2025) https://github.com/bloa/magpie
 
 It is recommened that you create examples/avx_extra to hold the development versions
 of the files in the examples/avx directory.
 
-This work will be presented at GI@ICSE 2026, 12 April, Rio (Brazil) https://geneticimprovementofsoftware.com/events/icse2026
+This work will be presented at GI@ICSE 2026, 13 April, Rio (Brazil) https://geneticimprovementofsoftware.com/events/icse2026
 ```
 @InProceedings{Langdon:2026:GI,
     author = "William B. Langdon and Carol Hanna",
@@ -27,8 +28,8 @@ This work will be presented at GI@ICSE 2026, 12 April, Rio (Brazil) https://gene
     year = "2026",
     editor = "Aymeric Blot and Oliver Krauss",
     address = "Rio de Janeiro",
-    month = "12 April",
-    url = {https://geneticimprovementofsoftware.com/events/icse2026},
+    month = "13 April",
+    url = "http://gpbib.cs.ucl.ac.uk/gi2026/langdon_2026_GI.pdf",
     code_url = "https://github.com/wblangdon/rand_malloc",
     size = "8 pages",
 }
