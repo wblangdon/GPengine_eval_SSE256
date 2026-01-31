@@ -1,5 +1,5 @@
 # GPengine_eval_SSE256
-Example of using Magpie to speedup the performance critical interpret of GPengine
+Example of using Magpie to speedup the performance critical interpret of [GPengine](https://github.com/wblangdon/GPengine)
 (Peter Nordin's) linear genetic programming system. Here set up with just the usual four
 arithmetic operations (+ - times and protected division) operating on unsigned
 char data types for extended evolution on the Mackey-Glass chaotic time series.
